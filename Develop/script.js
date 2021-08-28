@@ -8,51 +8,56 @@ var specialChar = ['!', '@', '#', '$', '%', '^', '&', '*', '(',')'];
 // password generation function
 var generatePassword = function() {
   var length = parseInt(prompt("Please input a number between 8 and 128 to determine password length"));
-  if (isNaN(length) || length < 8 || length > 128){
-    alert("Entry must be a number between 8 and 128");
-    return;
-  };
+    if (isNaN(length) || length < 8 || length > 128){
+      alert("Entry must be a number between 8 and 128");
+      return;
+    };
 
   var allowedCharacters = [];
 
   var numb = prompt("Would you like to use numbers? (y/n)").toLowerCase 
-  if (numb = 'y') {
-    allowedCharacters = allowedCharacters.concat(numbers);
-    console.log(allowedCharacters);
-  };
-  
+    if (numb = 'y') {
+      allowedCharacters = allowedCharacters.concat(numbers);
+      console.log(allowedCharacters)
+    };
 
-  prompt("Would you like to use lowercase letters? (y/n)").toLowerCase 
-  if ("y") {
-    allowedCharacters = allowedCharacters.concat(lowerLetters);
-    console.log(allowedCharacters);
-  };
-  
+  var lower = prompt("Would you like to use lowercase letters? (y/n)").toLowerCase 
+    if (lower = 'y') {
+      allowedCharacters = allowedCharacters.concat(lowerLetters);
+      console.log(allowedCharacters)
+    };
 
-  prompt("Would you like to use uppercase letters? (y/n)").toLowerCase 
-  if ("y") {
-    allowedCharacters = allowedCharacters.concat(upperLetters);
-    console.log(allowedCharacters);
-  };
+  var upper = prompt("Would you like to use uppercase letters? (y/n)").toLowerCase 
+    if (upper = 'y') {
+      allowedCharacters = allowedCharacters.concat(upperLetters);
+      console.log(allowedCharacters)
+    };
 
-  prompt("Would you like to use special characters? (y/n)").toLowerCase 
-  if ("y") {
-    allowedCharacters = allowedCharacters.concat(specialChar);
-    console.log(allowedCharacters);
-  };
+  var special = prompt("Would you like to use special characters? (y/n)").toLowerCase 
+    if (special = 'y') {
+      allowedCharacters = allowedCharacters.concat(specialChar);
+      console.log(allowedCharacters)
+    };
 
-  for (var i = 0; i < allowedCharacters.length; i++) {
-    var randomCharacters = allowedCharacters[Math.floor]
-  }
+  var password = "";
+
+  for (var i = 0; i < length; i++) {
+    var randomCharacters = Math.floor(Math.random() * length);
+    var character = allowedCharacters[randomCharacters];
+    password = password.concat(character);
+  };
+  return password;
 };
 
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  if (password) {
+    var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
