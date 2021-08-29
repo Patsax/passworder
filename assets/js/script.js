@@ -4,14 +4,14 @@ var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
 var upperLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "?", "+"];
-var allowedCharacters = [];
-var password = "";
+// var allowedCharacters = [];
+// var password = "";
 
-function random() {
-  var randomCharacters = allowedCharacters[Math.floor(Math.random() * length)];
-  var characters = allowedCharacters[randomCharacters];
-  password = password.concat(characters);
-}
+// function random() {
+//   var randomCharacters = allowedCharacters[Math.floor(Math.random() * length)];
+//   var characters = allowedCharacters[randomCharacters];
+//   password = password.concat(characters);
+// }
 
 // password generation function
 function generatePassword() {
@@ -22,6 +22,8 @@ function generatePassword() {
     alert("Entry must be a number between 8 and 128");
     return;
   }
+
+  allowedCharacters = [];
 
   var numb = prompt("Would you like to use numbers? (y/n)").toLowerCase;
   if (numb = "y") {
@@ -53,17 +55,17 @@ function generatePassword() {
     console.log(allowedCharacters);
   }
 
-  random();
-  // var password = "";
+  // random();
+  var password = "";
 
-  // for (var i = 0; i < length; i++) {
-  //   var randomCharacters = Math.floor(Math.random() * length);
-  //   var characters = allowedCharacters[randomCharacters];
-  //   password = password.concat(characters);
-  // };
+  for (var i = 0; i < length; i++) {
+    var randomCharacters = Math.floor(Math.random() * length);
+    var characters = allowedCharacters[randomCharacters];
+    password = password.concat(characters);
+  };
 
-  // console.log(password, "undefined?");
-  // return password;
+  console.log(password, "undefined?");
+  return password;
 }
 
 // Write password to the #password input
